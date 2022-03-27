@@ -1,4 +1,5 @@
 import './App.css';
+import ArcDiagram from "./components/ArcDiagram";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header className="App-header">
         Finalist project data
       </header>
+        <ArcDiagram/>
     </div>
   );
 }
