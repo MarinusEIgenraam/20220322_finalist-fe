@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import IndentedTree from "../components/IndentedTree";
+import ArcDiagram from "../components/ArcDiagram";
 
 ////////////////////
 //// Environmental
@@ -22,16 +23,17 @@ export default function Chart() {
 
     return (
         <>
-            <ViewPort>
-                <IndentedTree data={chartData} dimensions={dimensions} />
-            </ViewPort>
+            <View>
+                <ArcDiagram data={chartData} dimensions={dimensions} />
+            </View>
         </>
     )
 }
 
-const ViewPort = styled.div`
+const View = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
 
 /** Created by ownwindows on 28-03-22 **/

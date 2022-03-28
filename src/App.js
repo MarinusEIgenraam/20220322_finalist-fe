@@ -13,15 +13,24 @@ const chartData = {};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Finalist project data
-      </header>
-        <Chart/>
+      <>
+          <header className="App-header">
+              Finalist project data
+          </header>
+          <ViewPort className="App">
+              <Chart/>
 
-    </div>
+          </ViewPort>
+      </>
+
   );
 }
+
+const ViewPort = styled.div`
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+`
 
 
 export default App;

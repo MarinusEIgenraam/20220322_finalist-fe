@@ -58,7 +58,7 @@ export default function IndentedTree({ dimensions }) {
 
         const link = svg.append("g")
             .attr("fill", "none")
-            .attr("stroke", "#999")
+            .attr("stroke", "var(--primary)")
             .selectAll("path")
             .data(root.links())
             .join("path")
@@ -77,7 +77,7 @@ export default function IndentedTree({ dimensions }) {
         node.append("circle")
             .attr("cx", d => d.depth * nodeSize)
             .attr("r", 2.5)
-            .attr("fill", d => d.children ? null : "#999");
+            .attr("fill", d => d.children ? null : "var(--primary)");
 
         node.append("text")
             .attr("dy", "0.32em")

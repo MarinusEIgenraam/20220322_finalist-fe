@@ -25,3 +25,24 @@ body {
   font-size: 1.1em;
   font-weight: 300;
 }
+
+
+
+:root {
+
+  --primary: #51C4D3;
+  --secondary: #126E82;
+  --tertiary: #132C33;
+  --quaternary: #D8E3E7;
+  --quinary: #CF9508;
+  --senary: #825f0c;
+
+  --warning: hsla(205, 20%, 62%, 1);
+
+  --lighgray: hsl(0, 0%, 69%);
+  --darkgray: hsl(0, 0%, 36%);
+
+  --black: hsl(0, 0%, 14%);
+  --white: hsl(0, 0%, 100%);
+
+}
