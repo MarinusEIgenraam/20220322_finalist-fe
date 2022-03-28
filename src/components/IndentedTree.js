@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import * as d3 from "d3";
 import data from "../mockData/data.json"
+import styled from 'styled-components'
 
 ////////////////////
 //// Environmental
@@ -24,7 +25,9 @@ export default function IndentedTree({ dimensions }) {
     let i = 0
     const root = d3.hierarchy(data).eachBefore(d => d.index = i++)
 
+
     const format = d3.format(",")
+
     const columns = [
         {
             label: "Size",
@@ -43,12 +46,15 @@ export default function IndentedTree({ dimensions }) {
 
     useEffect(() => {
         const nodes = root.descendants();
+        const svgUse = d3.select(svgRef.current)
+        svgUse.selectAll("*").remove(); // Clear svg content before adding new elements
 
-        const svg = d3.select(svgRef.current)
+        const svg = svgUse
             .attr("viewBox", [ -nodeSize / 2, -nodeSize * 3 / 2, width, ( nodes.length + 1 ) * nodeSize ])
             .attr("font-family", "sans-serif")
             .attr("font-size", 10)
             .style("overflow", "visible");
+
 
         const link = svg.append("g")
             .attr("fill", "none")
@@ -102,10 +108,21 @@ export default function IndentedTree({ dimensions }) {
     });
 
     return (
-        <>
-            <svg ref={ svgRef } width={ svgWidth } height={ svgHeight }/>
-        </>
+        <SvgWrapper ref={ wrapperRef } style={ { marginBottom: "2rem" } }>
+            <svg ref={ svgRef }/>
+        </SvgWrapper>
     )
 }
+
+const SVG = styled.svg`
+  width: 100%;
+`
+
+const SvgWrapper = styled.div`
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 /** Created by ownwindows on 28-03-22 **/

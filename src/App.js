@@ -1,5 +1,7 @@
 import './App.css';
 import IndentedTree from "./components/IndentedTree";
+import styled from 'styled-components';
+import Chart from "./Views/Chart";
 
 const dimensions = {
     width: 600,
@@ -15,15 +17,11 @@ function App() {
       <header className="App-header">
         Finalist project data
       </header>
-        <h2>
-            jo
-        </h2>
-        <div>
-            <IndentedTree data={chartData} dimensions={dimensions} />
+        <Chart/>
 
-        </div>
     </div>
   );
 }
+
 
 export default App;
