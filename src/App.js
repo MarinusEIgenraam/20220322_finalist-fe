@@ -1,8 +1,8 @@
 import './App.css';
-import IndentedTree from "./components/IndentedTree";
 import styled from 'styled-components';
-import Chart from "./Views/Chart";
 import Practice from "./Views/Practice";
+import Navbar from "./components/shared/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 const dimensions = {
     width: 600,
@@ -14,20 +14,17 @@ const chartData = {};
 
 function App() {
   return (
-      <>
-          <header className="App-header">
-              Finalist project data
-          </header>
-          <ViewPort className="App">
-              <Practice/>
-
-          </ViewPort>
-      </>
+      <Container>
+          <Navbar/>
+          <Routes>
+              <Route path='/practice' element={ <Practice/> }/>
+          </Routes>
+      </Container>
 
   );
 }
 
-const ViewPort = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction:column;
   align-items: center;

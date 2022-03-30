@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import data1 from '../mockData/data.json'
 import dataset from '../mockData/data_dendrogram_full.json'
 
-import CollapsibleTree from "../components/CollapsibleTree";
+import CollapsibleTree from "../components/feature/CollapsibleTree";
 
 ////////////////////
 //// Environmental
@@ -14,7 +14,7 @@ import CollapsibleTree from "../components/CollapsibleTree";
 //// External
 
 const dimensions = {
-    width: 500,
+    width: 1000,
     height: 300,
     margin: { top: 30, right: 30, bottom: 30, left: 60 }
 };
@@ -73,6 +73,8 @@ export default function Practice() {
         });
 
         setData(_data);
+        console.log(data)
+
     }
 
     const updateData4 = () => {
@@ -81,10 +83,13 @@ export default function Practice() {
         _data["children"].splice(1,1);
 
         setData(_data);
+        console.log(data)
     }
 
     const resetData = () => {
         setData(dataset);
+        console.log(data)
+
     }
 
     if(data === null) return <></>;

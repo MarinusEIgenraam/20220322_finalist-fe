@@ -2,9 +2,9 @@
 //// Build
 import React, { useEffect, useRef } from 'react'
 import * as d3 from "d3";
-import data from "../mockData/data.json"
+import data from "../../mockData/data.json"
 import styled from 'styled-components'
-import { arcStyles } from "../helpers/arcstyles";
+import { arcStyles } from "../../helpers/arcstyles";
 
 ////////////////////
 //// Environmental

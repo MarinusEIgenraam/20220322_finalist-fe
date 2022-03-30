@@ -2,8 +2,8 @@
 //// Build
 import React from 'react'
 import styled from 'styled-components';
-import IndentedTree from "../components/IndentedTree";
-import ArcDiagram from "../components/ArcDiagram";
+import IndentedTree from "../components/feature/IndentedTree";
+import ArcDiagram from "../components/feature/ArcDiagram";
 
 ////////////////////
 //// Environmental
@@ -17,7 +17,7 @@ const dimensions = {
     margin: { top: 30, right: 30, bottom: 30, left: 60 }
 };
 
-export default function Chart() {
+export default function VersionControle() {
 
 
     const chartData = {};
