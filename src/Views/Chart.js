@@ -1,6 +1,6 @@
 ////////////////////
 //// Build
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import IndentedTree from "../components/IndentedTree";
 import ArcDiagram from "../components/ArcDiagram";
@@ -8,23 +8,27 @@ import ArcDiagram from "../components/ArcDiagram";
 ////////////////////
 //// Environmental
 
-
 ////////////////////
 //// External
 
+const dimensions = {
+    width: 500,
+    height: 300,
+    margin: { top: 30, right: 30, bottom: 30, left: 60 }
+};
+
 export default function Chart() {
-    const dimensions = {
-        width: 600,
-        height: 300,
-        margin: { top: 30, right: 30, bottom: 30, left: 60 }
-    };
+
 
     const chartData = {};
 
     return (
         <>
             <View>
-                <ArcDiagram data={chartData} dimensions={dimensions} />
+                <ArcDiagram
+                    dimensions={dimensions}
+                />
+                <IndentedTree data={chartData} dimensions={dimensions} />
             </View>
         </>
     )

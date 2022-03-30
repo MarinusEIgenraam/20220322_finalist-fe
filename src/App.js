@@ -2,6 +2,7 @@ import './App.css';
 import IndentedTree from "./components/IndentedTree";
 import styled from 'styled-components';
 import Chart from "./Views/Chart";
+import Practice from "./Views/Practice";
 
 const dimensions = {
     width: 600,
@@ -18,7 +19,7 @@ function App() {
               Finalist project data
           </header>
           <ViewPort className="App">
-              <Chart/>
+              <Practice/>
 
           </ViewPort>
       </>
