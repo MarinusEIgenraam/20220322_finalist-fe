@@ -2,8 +2,8 @@
 //// Build
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import data1 from '../mockData/data.json'
-import dataset from '../mockData/data_dendrogram_full.json'
+import data1 from '../mockData/TreeData.json'
+import dataset from '../mockData/PracticeData.json'
 
 import CollapsibleTree from "../components/feature/CollapsibleTree";
 

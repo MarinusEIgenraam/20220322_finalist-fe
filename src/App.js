@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Practice from "./Views/Practice";
 import Navbar from "./components/shared/Navbar";
 import { Route, Routes } from "react-router-dom";
+import VersionControle from "./Views/VersionControle";
 
 const dimensions = {
     width: 600,
@@ -18,6 +19,7 @@ function App() {
           <Navbar/>
           <Routes>
               <Route path='/practice' element={ <Practice/> }/>
+              <Route path='/vcs' element={ <VersionControle/> }/>
           </Routes>
       </Container>
 

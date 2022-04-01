@@ -1,9 +1,9 @@
 ////////////////////
 //// Build
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import IndentedTree from "../components/feature/IndentedTree";
-import ArcDiagram from "../components/feature/ArcDiagram";
+import { fetchProjectFiles } from "../helpers/DataController";
 
 ////////////////////
 //// Environmental
@@ -18,17 +18,21 @@ const dimensions = {
 };
 
 export default function VersionControle() {
+    const [projectFiles, setProjectFiles] = useState({});
+
+    useEffect(() => {
+        fetchProjectFiles().then((response) => setProjectFiles(response))
+    },[]);
 
 
-    const chartData = {};
 
     return (
         <>
             <View>
-                <ArcDiagram
-                    dimensions={dimensions}
-                />
-                <IndentedTree data={chartData} dimensions={dimensions} />
+                <IndentedTree data={projectFiles} dimensions={dimensions} />
+                {/*<ArcDiagram*/}
+                {/*    dimensions={dimensions}*/}
+                {/*/>*/}
             </View>
         </>
     )

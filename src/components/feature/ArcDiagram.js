@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import * as d3 from "d3";
-import data from "../../mockData/data (1).json";
-import { arcStyles } from "../../helpers/arcstyles";
+import data from "../../mockData/NodesLinks.json";
+import { arcStyles } from "../../styles/arcstyles";
 
 
 ////////////////////

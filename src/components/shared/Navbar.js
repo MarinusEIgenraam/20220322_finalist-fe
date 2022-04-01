@@ -15,6 +15,7 @@ export default function Navbar() {
     return (
         <Nav>
             <MenuLink to="/practice">Practice</MenuLink>
+            <MenuLink to="/vcs">Version Controle</MenuLink>
         </Nav>
     )
 }
@@ -25,7 +26,6 @@ const Nav = styled.div`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
 `
 
