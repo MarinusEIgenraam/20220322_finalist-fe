@@ -12,16 +12,17 @@ import { fetchProjectFiles } from "../helpers/DataController";
 //// External
 
 const dimensions = {
-    width: 500,
+    width: 600,
     height: 300,
     margin: { top: 30, right: 30, bottom: 30, left: 60 }
 };
 
 export default function VersionControle() {
     const [projectFiles, setProjectFiles] = useState({});
+    const [projectId, setProjectId] = useState(1)
 
     useEffect(() => {
-        fetchProjectFiles().then((response) => setProjectFiles(response))
+        fetchProjectFiles(projectId).then((response) => setProjectFiles(response))
     },[]);
 
 
