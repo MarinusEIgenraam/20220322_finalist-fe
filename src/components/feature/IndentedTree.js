@@ -1,7 +1,11 @@
 ////////////////////
 //// Build
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import * as d3 from "d3";
+import treeData from '../../mockData/RealData.json'
+import { UtilityContext } from "../../context/UtilityProvider";
+import axios from "axios";
+import { fetchProjectFiles } from "../../helpers/DataController";
 
 ////////////////////
 //// Environmental
@@ -14,7 +18,7 @@ const format = d3.format(",")
 const columns = [
     {
         label: "Size in kB",
-        value: d => d?.filesize,
+        value: d => d.filesize,
         format,
         x: "80%"
     },
@@ -26,23 +30,45 @@ const columns = [
     }
 ]
 
-export default function IndentedTree({ data, dimensions }) {
-    // React hooks
+const dimensions = {
+    width: 600,
+    height: 300,
+    margin: { top: 30, right: 30, bottom: 30, left: 60 }
+};
+
+export default function IndentedTree() {
+    const utilityContext = useContext(UtilityContext);
+
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+    const [ dataData, setDataData ] = useState()
+    const [ projectData, setProjectData ] = useState()
+
     const svgRef = useRef();
     const wrapperRef = useRef();
-    // Measures
+
     const { width, height, margin } = dimensions;
     const svgWidth = width + margin.left + margin.right;
     const svgHeight = height + margin.top + margin.bottom;
     const nodeSize = 17;
 
-    console.log(data.data)
 
     useEffect(() => {
+        fetchProjectFiles(utilityContext, 1).then((response) => setProjectData(response.data))
+    }, []);
+
+    let data = treeData.fileInfo
+
+
+    useEffect(() => {
+        if (projectData) {
+            data = projectData?.fileInfo;
+        }
+
         let i = 0
         const svg = d3.select(svgRef.current)
+        svg.selectAll("*").remove(); // Clear svg content before adding new elements
 
-        // Create link data
         const leaves = d3.hierarchy(data).leaves()
         console.log(leaves)
 
@@ -56,14 +82,9 @@ export default function IndentedTree({ data, dimensions }) {
         })
 
 
-        // Create colour palet
-        // const nodeById = new Map(links.map(d => [ d.id, d ]));
-        // const color = d3.scaleOrdinal(leaves.map(d => d.depth).sort(d3.descending), d3.schemeCategory10);
-
         const root = d3.hierarchy(data).eachBefore(( d => d.index = i++ ));
 
         const nodes = root.descendants();
-        svg.selectAll("*").remove(); // Clear svg content before adding new elements
 
         // General styles
         const styles = svg
@@ -129,11 +150,11 @@ export default function IndentedTree({ data, dimensions }) {
                 .data(root.copy().sum(value).descendants())
                 .text(d => format(d.value, d));
         }
-    },[data]);
+    }, [ projectData ]);
 
     return (
         <>
-            <svg ref={ svgRef } width={ svgWidth } />
+            <svg ref={ svgRef } width={ svgWidth }/>
         </>
     )
 

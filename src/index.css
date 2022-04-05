@@ -1,11 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700;800&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-
 
 :root {
 
@@ -24,5 +23,56 @@
   --black: hsl(0, 0%, 14%);
   --white: hsl(0, 0%, 100%);
 
+  --normal-font: 'Open Sans', sans-serif;
+  --tittle-font: 'Roboto Mono', monospace;
 }
 
+
+body {
+  margin: 0;
+  font-family: var(--normal-font);
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  font-family: var(--tittle-font);
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3, h4, h5 {
+  font-family: var(--normal-font);
+  font-weight: 700;
+}
+
+footer {
+  font-size: 0.9rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+
+.fontAwesome-small {
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.centered {
+  text-align: center;
+  width: 100%;
+}
