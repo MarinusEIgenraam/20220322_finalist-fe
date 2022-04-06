@@ -10,6 +10,7 @@ import { fetchProjectFiles } from "./helpers/DataController";
 import Error from "./components/shared/Error";
 import Footer from "./components/shared/Footer";
 import { UtilityContext } from "./context/UtilityProvider";
+import ProjectOverview from "./Views/ProjectOverview";
 
 const dimensions = {
     width: 600,
@@ -28,7 +29,7 @@ function App() {
           <Navbar/>
           <Routes>
               <Route path='/practice' element={ <Practice/> }/>
-              {/*<Route path='/projects' element={ <ProjectOverview/> }/>*/}
+              <Route path='/projects' element={ <ProjectOverview/> }/>
               <Route path='/projects/:id' element={ <ProjectDetails/> }/>
           </Routes>
           { hasError &&

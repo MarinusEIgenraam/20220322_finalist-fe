@@ -41,3 +41,23 @@ export async function fetchProjectFiles(utilityContext, projectId) {
         console.error(e);
     }
 }
+
+export async function fetchProjects(utilityContext) {
+    const { setIsLoading, setHasError } = utilityContext;
+    setHasError(false);
+    setIsLoading(true);
+
+    try {
+        return await axios.get(`${REACT_APP_API_URL}projects`,
+            {
+                cancelToken: source.token
+            }).then((response) => {
+            setIsLoading(false)
+            return response
+        });
+    } catch (e) {
+        setIsLoading(false)
+        setHasError(e);
+        console.error(e);
+    }
+}
