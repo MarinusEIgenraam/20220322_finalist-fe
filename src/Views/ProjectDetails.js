@@ -2,11 +2,12 @@
 //// Build
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components';
-import { fetchProjectFiles } from "../helpers/DataController";
-import ArcDiagram from "../components/feature/ArcDiagram";
 import axios from "axios";
 import { UtilityContext } from "../context/UtilityProvider";
 import IndentedTree from "../components/feature/IndentedTree";
+import { useParams } from "react-router-dom";
+import { fetchProjectFiles } from "../helpers/DataController";
+import ArcDiagram from "../components/feature/ArcDiagram";
 
 ////////////////////
 //// Environmental
@@ -21,24 +22,39 @@ const dimensions = {
 };
 
 export default function ProjectDetails() {
-    const [projectFiles, setProjectFiles] = useState({});
+    const [ projectFiles, setProjectFiles ] = useState();
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     const utilityContext = useContext(UtilityContext);
+    const { id } = useParams();
 
-    const [visualisation, setVisualisation] = useState("tree")
+    const [ visualisation, setVisualisation ] = useState("tree")
 
 
+    useEffect(() => {
+        fetchProjectFiles(utilityContext, id).then((response) => setProjectFiles(response.data.fileInfo))
+    }, []);
+
+    useEffect(() => {
+        console.log(visualisation)
+    },[visualisation]);
+
+    console.log(projectFiles)
 
     return (
         <>
             <View>
-                <h1>Data visualisation</h1>
-                {(visualisation === "tree") &&
-                    <IndentedTree/>
+                <Header>Data visualisation</Header>
+                <OptionNavigation>
+                    <Option onClick={()=>setVisualisation("tree")}>Tree</Option>
+                    Hierarchy
+                    <Option onClick={()=> setVisualisation("arc")}>Arc</Option>
+                </OptionNavigation>
+                { ( visualisation === "tree" ) &&
+                    <IndentedTree data={ projectFiles } />
                 }
                 {(visualisation === "arc") &&
-                    <ArcDiagram projectData={projectFiles} dimensions={dimensions} />
+                <ArcDiagram data={projectFiles} dimensions={dimensions} />
                 }
 
             </View>
@@ -46,10 +62,34 @@ export default function ProjectDetails() {
     )
 }
 
+const OptionNavigation = styled.nav`
+  margin: 1rem 0;
+  vertical-align: baseline;
+
+  display: flex;
+`
+
+const Header = styled.h1`
+color: var(--primary);
+    
+`
 const View = styled.div`
+  margin-top: 1rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
+const Option = styled.button`
+  display: inline;
+  width: 55px;
+  background: transparent;
+  border: 2px solid var(--tertiary);
+
+  vertical-align: baseline;
+  margin: 0 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+`
 /** Created by ownwindows on 28-03-22 **/
