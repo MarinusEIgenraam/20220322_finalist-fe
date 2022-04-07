@@ -35,7 +35,7 @@ export default function Navbar() {
             </Hamburger>
             <Menu menuOpen={ menuOpen } navActive={ navActive }>
                 <MenuLink onClick={ () => setMenuOpen(false) } to="/projects">Projects</MenuLink>
-                <MenuLink onClick={ () => setMenuOpen(false) } to="/practice">Practice</MenuLink>
+                {/*<MenuLink onClick={ () => setMenuOpen(false) } to="/practice">Practice</MenuLink>*/}
                 <MenuLink onClick={ () => setMenuOpen(false) } to="/about">About</MenuLink>
 
 

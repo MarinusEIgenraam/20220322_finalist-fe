@@ -22,6 +22,7 @@ const dimensions = {
 };
 
 export default function ProjectDetails() {
+
     const [ projectFiles, setProjectFiles ] = useState();
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
@@ -32,7 +33,16 @@ export default function ProjectDetails() {
 
 
     useEffect(() => {
+        setTimeout(function() {
+            window.location.reload();
+        }, 10000);
+
         fetchProjectFiles(utilityContext, id).then((response) => setProjectFiles(response.data.fileInfo))
+
+        console.log(projectFiles)
+        return function cleanup() {
+            clearTimeout()
+        };
     }, []);
 
     useEffect(() => {

@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import * as d3 from "d3";
 import { UtilityContext } from "../../context/UtilityProvider";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 ////////////////////
 //// Environmental
@@ -35,6 +36,7 @@ const dimensions = {
 };
 
 export default function IndentedTree({ data }) {
+    const history = useLocation()
     const utilityContext = useContext(UtilityContext);
 
     const CancelToken = axios.CancelToken;
@@ -50,9 +52,12 @@ export default function IndentedTree({ data }) {
     console.log(data)
 
     useEffect(() => {
+
         if (data) {
             renderTree(data)
         }
+
+
     }, [ data ]);
 
     const renderTree = (data) => {
@@ -95,7 +100,7 @@ export default function IndentedTree({ data }) {
             .attr("d", d => `
           M${ d.source.depth * nodeSize },${ d.source.index * nodeSize }
           V${ d.target.index * nodeSize }
-          h${ nodeSize } // Horizontal
+          h${ nodeSize }
         `);
 
         const node = svg.append("g")
