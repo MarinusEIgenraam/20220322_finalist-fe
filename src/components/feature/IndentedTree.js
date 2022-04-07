@@ -2,10 +2,8 @@
 //// Build
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import * as d3 from "d3";
-import treeData from '../../mockData/RealData.json'
 import { UtilityContext } from "../../context/UtilityProvider";
 import axios from "axios";
-import { fetchProjectFiles } from "../../helpers/DataController";
 
 ////////////////////
 //// Environmental
@@ -36,47 +34,39 @@ const dimensions = {
     margin: { top: 30, right: 30, bottom: 30, left: 60 }
 };
 
-export default function IndentedTree() {
+export default function IndentedTree({ data }) {
     const utilityContext = useContext(UtilityContext);
 
     const CancelToken = axios.CancelToken;
-    const source = CancelToken.source();
-    const [ dataData, setDataData ] = useState()
-    const [ projectData, setProjectData ] = useState()
+    const [ containerWidth, setContainerWidth ] = useState()
 
-    const svgRef = useRef();
-    const wrapperRef = useRef();
+    const svgRef = useRef(null);
 
     const { width, height, margin } = dimensions;
     const svgWidth = width + margin.left + margin.right;
     const svgHeight = height + margin.top + margin.bottom;
     const nodeSize = 17;
 
+    console.log(data)
 
     useEffect(() => {
-        fetchProjectFiles(utilityContext, 1).then((response) => setProjectData(response.data))
-    }, []);
-
-    let data = treeData.fileInfo
-
-
-    useEffect(() => {
-        if (projectData) {
-            data = projectData?.fileInfo;
+        if (data) {
+            renderTree(data)
         }
+    }, [ data ]);
 
-        let i = 0
+    const renderTree = (data) => {
+        let i = 0;
         const svg = d3.select(svgRef.current)
         svg.selectAll("*").remove(); // Clear svg content before adding new elements
 
         const leaves = d3.hierarchy(data).leaves()
-        console.log(leaves)
 
         let links = [];
         leaves.forEach((e, i) => {
             links.push({
                 id: i,
-                source: e.parent?.data.name,
+                source: e.parent.data.name,
                 target: e.data.name,
             });
         })
@@ -86,7 +76,6 @@ export default function IndentedTree() {
 
         const nodes = root.descendants();
 
-        // General styles
         const styles = svg
             .attr("id", "one")
             .attr("zoomAndPan", "diabled")
@@ -97,7 +86,6 @@ export default function IndentedTree() {
             .attr("font-size", "0.8rem")
             .style("overflow", "visible");
 
-        // Paths
         const link = svg.append("g")
             .attr("fill", "none")
             .attr("stroke", "var(--primary)")
@@ -132,7 +120,6 @@ export default function IndentedTree() {
         node.append("title")
             .text(d => d.ancestors().reverse().map(d => d.data.name).join("/"));
 
-        // Stats
         for (const { label, value, format, x } of columns) {
             svg.append("text")
                 .attr("dy", "0.32em")
@@ -150,13 +137,11 @@ export default function IndentedTree() {
                 .data(root.copy().sum(value).descendants())
                 .text(d => format(d.value, d));
         }
-    }, [ projectData ]);
 
-    return (
-        <>
-            <svg ref={ svgRef } width={ svgWidth }/>
-        </>
-    )
+    }
+
+    return <svg ref={ svgRef } width={ svgWidth }/>
+
 
 }
 

@@ -30,9 +30,9 @@ export default function Footer() {
             <FooterContent>
                 <FooterWrap>
                     <ContactContainer>
-                        <h4>Contact</h4>
-                        <span>Marinus Eigenraam</span>
-                        <p>rinuseigenraam@gmail.com</p>
+                        <Name>Marinus Eigenraam </Name>
+                        <Email>rinuseigenraam@gmail.com </Email>
+                        <Telephone>06 36 488 222</Telephone>
                     </ContactContainer>
                 </FooterWrap>
             </FooterContent>
@@ -47,28 +47,27 @@ const FooterContent = styled.div`
 
 `
 const ContactContainer = styled.div`
-  padding: 0 0.5rem;
+  width:80vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
 
+const Name = styled.div`
+    font-weight: 700;
+  padding: 0 1rem 0 0
+`
+
+const Email = styled.div`
+  padding: 0 1rem 0 0
+
+`
+
+const Telephone = styled.div`
 `
 
 export const FooterWrap = styled.div`
   display: flex;
-
-  max-width: 100%;
-
-
-  & > *,
-  div > * {
-    display: flex;
-    flex-direction: column;
-
-    @media ${ QUERIES.tabletMini } {
-      flex-direction: row;
-      > * {
-        margin-right: 1em;
-      }
-    }
-  }
 `;
 
 const FooterContainer = styled.footer`
