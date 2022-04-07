@@ -27,33 +27,41 @@ export default function Navbar() {
 
     return (
         <Nav navActive={ navActive }>
-            <LogoLoader navActive={ navActive }/>
-            <Hamburger onClick={ () => setMenuOpen(!menuOpen) }>
-                <span/>
-                <span/>
-                <span/>
-            </Hamburger>
-            <Menu menuOpen={ menuOpen } navActive={ navActive }>
-                <MenuLink onClick={ () => setMenuOpen(false) } to="/projects">Projects</MenuLink>
-                {/*<MenuLink onClick={ () => setMenuOpen(false) } to="/practice">Practice</MenuLink>*/}
-                <MenuLink onClick={ () => setMenuOpen(false) } to="/about">About</MenuLink>
+            <VieWidth>
+
+                <LogoLoader navActive={ navActive }/>
+                <Hamburger onClick={ () => setMenuOpen(!menuOpen) }>
+                    <span/>
+                    <span/>
+                    <span/>
+                </Hamburger>
+                <Menu menuOpen={ menuOpen } navActive={ navActive }>
+                    <MenuLink onClick={ () => setMenuOpen(false) } to="/projects">Projects</MenuLink>
+                    {/*<MenuLink onClick={ () => setMenuOpen(false) } to="/practice">Practice</MenuLink>*/}
+                    <MenuLink onClick={ () => setMenuOpen(false) } to="/about">About</MenuLink>
 
 
 
 
-            </Menu>
+                </Menu>
+            </VieWidth>
 
         </Nav>
     )
 }
 
+const VieWidth = styled.div`
+width: 90vw;
+  display: flex;
+  justify-content:space-between;
+`
 const Nav = styled.div`
   z-index: 5;
   display: flex;
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 `
 
