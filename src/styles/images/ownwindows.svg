@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 288 288" xmlns="http://www.w3.org/2000/svg">
+<svg width="288" height="288" viewBox="-10 0 1918 1536" xmlns="http://www.w3.org/2000/svg">
+<rect class="colorred svgShape" x="1007" y="190" width="364" height="517" fill="#cf9508"/>
+<rect class="color00f svgShape" x="1007.5" y="738" width="363.46" height="519" fill="#51c4d3"/>
+<rect class="colorgreen svgShape" x="1371" y="175" width="448.5" height="475" fill="#126e82"/>
+<rect class="colorff0 svgShape" x="1371" y="726" width="448.5" height="478" fill="#825f0c"/>
+<path class="color000 svgShape" d="m58 121v59l-68 28v-58z"/>
+<path class="colorred svgShape" d="m51 312v53l-55 25v-52zm0 192v52l-55 25v-52z" fill="#cf9508"/>
+<path class="color000 svgShape" d="m58 693v59l-68 28v-57z"/>
+<path class="color00f svgShape" d="m51 892v51l-55 25v-52zm0 194v52l-55 25v-51z" fill="#51c4d3"/>
+<path class="color000 svgShape" d="M58 1273v60l-68 28v-57zM230 154v69l-92 35v-68z"/>
+<path class="colorred svgShape" d="m225 354v63l-74 29v-63zm0 193v62l-74 29v-64z" fill="#cf9508"/>
+<path class="color000 svgShape" d="m230 733v68l-92 36v-68z"/>
+<path class="color00f svgShape" d="m225 933v62l-74 30v-64zm0 195v62l-74 30v-63z" fill="#51c4d3"/>
+<path class="color000 svgShape" d="M230 1315v68l-92 38v-68zM402 197v82l-119 47v-81z"/>
+<path class="colorred svgShape" d="m396 398v73l-100 39v-71zm0 193v72l-100 40v-72z" fill="#cf9508"/>
+<path class="color000 svgShape" d="m402 776v82l-119 47v-81z"/>
+<path class="color00f svgShape" d="m396 977v72l-100 41v-72zm0 187v74l-100 40v-72z" fill="#51c4d3"/>
+<path class="color000 svgShape" d="M402 1351v82l-119 48v-82zM590 192V300L441 360V253z"/>
+<path class="colorred svgShape" d="m582 393v99l-125 51v-99zm0 193v98l-125 51v-99z" fill="#cf9508"/>
+<path class="color000 svgShape" d="m590 772v108l-149 59v-108z"/>
+<path class="color00f svgShape" d="m582 973v99l-125 50v-99zm0 187v99l-125 50v-98z" fill="#51c4d3"/>
+<path class="color000 svgShape" d="M590 1346v108l-149 60v-107zM787 174V315L621 383V242z"/>
+<path class="colorred svgShape" d="m779 386v118l-142 57v-119zm0 184v119l-142 56v-118z" fill="#cf9508"/>
+<path class="color000 svgShape" d="m787 753v141l-166 67v-141z"/>
+<path class="color00f svgShape" d="m779 964v120l-142 55v-118zm0 188v119l-142 57v-119z" fill="#51c4d3"/>
+<path class="color000 svgShape" d="m787 1328v141l-166 67v-141zm201-1225v193l-177 74v-180c61.333-35.333 120.33-64.333 177-87zm0 213v167l-177 75v-168zm0 188v169l-177 75v-169zm0 190v167l-177 75v-168zm0 188v172l-177 76v-173zm0 193v168l-177 77v-170zm0 189v180c-69.333 26.667-128.33 52.333-177 77v-181z"/>
+<path class="color000 svgShape" transform="translate(-10)" d="m1474 0c-149.33 0-301.67 31.667-457 95v190c106-44.667 208-76.333 306-95v427c-108.67 16-210.67 46-306 90v129c110-53.333 212-86 306-98v440c-111.33 16-213.33 42.333-306 79v180c174.67-58.667 332.67-88 474-88 170.67 0 313 37.333 427 112v-1351c-135.33-73.333-283.33-110-444-110zm1 175c103.33 0 192 18.667 266 56v419c-86-28-173.33-42-262-42l-40 1v-432c12-1.3333 24-2 36-2zm2 551c96.667 0 184.67 17.333 264 52v426c-78-24-165.33-36-262-36h-40v-440c13.333-1.3333 26-2 38-2z"/>
+</svg>
+</svg>

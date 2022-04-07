@@ -11,6 +11,8 @@ import Error from "./components/shared/Error";
 import Footer from "./components/shared/Footer";
 import { UtilityContext } from "./context/UtilityProvider";
 import ProjectOverview from "./Views/ProjectOverview";
+import Landing from "./Views/Landing";
+import About from "./Views/About";
 
 const dimensions = {
     width: 600,
@@ -28,9 +30,11 @@ function App() {
       <Container>
           <Navbar/>
           <Routes>
-              <Route path='/practice' element={ <Practice/> }/>
+              <Route path='/' element={ <Landing/> }/>
+              {/*<Route path='/practice' element={ <Practice/> }/>*/}
               <Route path='/projects' element={ <ProjectOverview/> }/>
               <Route path='/projects/:id' element={ <ProjectDetails/> }/>
+              <Route path='/about' element={ <About/> }/>
           </Routes>
           { hasError &&
               <Error/>
